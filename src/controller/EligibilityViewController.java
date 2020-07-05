@@ -32,12 +32,12 @@ public class EligibilityViewController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String name=request.getParameter("Vish");
-		String number=request.getParameter("14");
-		int age=Integer.parseInt(request.getParameter("20"));
-		int height=Integer.parseInt(request.getParameter("160"));
-		int weight=Integer.parseInt(request.getParameter("65"));
-		String country=request.getParameter("ProGrad");
+		String name=request.getParameter("name");
+		String number=request.getParameter("number");
+		int age=Integer.parseInt(request.getParameter("age"));
+		int height=Integer.parseInt(request.getParameter("height"));
+		int weight=Integer.parseInt(request.getParameter("weight"));
+		String country=request.getParameter("country");
 		
 	
 		User user = new User(name,number,age,height,weight,country);
@@ -49,7 +49,7 @@ public class EligibilityViewController extends HttpServlet {
 		
 		EligibilityCheck eli = new EligibilityCheck();
 		
-		eli.basicEligibilityCheck(user);
+		boolean spaceEligible=eli.basicEligibilityCheck(user);
 		
 		System.out.println(spaceEligible);
 			if(spaceEligible)
